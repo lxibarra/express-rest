@@ -1,11 +1,12 @@
-import express from 'express'
+import express from 'express';
+import { testEnvironmentVariable, SecondVAR } from '../settings.js';
+
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    return res
-            .status(200)
-            .json({message: 'Welcome to express API'})
-})
+router.get('/', (req, res) => res.status(200)
+  .json({ 
+    message:testEnvironmentVariable,
+    added: SecondVAR 
+  }));
 
-
-export default router
+export default router;

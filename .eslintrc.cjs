@@ -10,7 +10,7 @@ module.exports = {
         node: true,
       },
       files: [
-        '.eslintrc.{js,cjs}',
+        '.eslintrc.{js,cjs,mjs}',
       ],
       parserOptions: {
         sourceType: 'script',
@@ -22,5 +22,6 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
+    "import/extensions": [0] // current node config does no
   },
 };

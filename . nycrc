@@ -1,0 +1,13 @@
+{
+    "extends": "@istanbuljs/nyc-config-babel",
+  "all": true,
+  "cache": false,
+  "check-coverage": true,
+  "useSpawnWrap": true,
+  "include": [
+    "test/**.js"
+  ],
+  "exclude":[
+    "node_modules/**/*"
+  ]
+}
