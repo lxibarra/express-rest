@@ -19,3 +19,6 @@ workflows:
           version: '18.15.0'
           # If you are using yarn, change the line below from "npm" to "yarn"
           pkg-manager: npm
+      - run:
+          command: |
+            npm run coverage
