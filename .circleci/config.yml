@@ -19,7 +19,8 @@ jobs:
           name: 'Execute test with mocha'
       - persist_to_workspace:
           root: ~/project
-          paths: .
+          paths: 
+            - .
 
 # Invoke jobs via workflows.circle
 # See: https://circleci.com/docs/configuration-reference/#workflows
@@ -27,7 +28,7 @@ workflows:
   run-test: # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run.
     jobs:
-      - run_tests:
+      - run_tests
       - node/run:
           version: '18.15.0'
           npm-run: coverage
