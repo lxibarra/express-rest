@@ -6,6 +6,7 @@
   "scripts": {
     "test": "nyc --reporter=html --reporter=text --reporter=lcov mocha  --experimental-loader=@istanbuljs/esm-loader-hook",
     "lint": "npx eslint --fix src/**",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
     "pretty": "prettier --write '**/*.{js,json}' '!node_modules/**'",
     "start": "node ./src/bin/www --verbose"
   },
