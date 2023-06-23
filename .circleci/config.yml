@@ -17,10 +17,9 @@ jobs:
       - run:
           command: npm run test
           name: 'Execute test with mocha'
-      - persist_to_workspace:
-          root: ~/project
-          paths:
-            - .
+      - run:
+          command: npm run coverage
+          name: 'Upload Soverage'
 
 # Invoke jobs via workflows.circle
 # See: https://circleci.com/docs/configuration-reference/#workflows
@@ -29,8 +28,3 @@ workflows:
     # Inside the workflow, you define the jobs you want to run.
     jobs:
       - run_tests
-      - node/run:
-          requires:
-            - run_tests
-          version: '18.16.1'
-          npm-run: coverage
