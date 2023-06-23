@@ -8,18 +8,18 @@ orbs:
 
 jobs:
   run_tests:
-    executor:
-      name: "node/default"
-      tag: '18.50'
+    docker:
+      - image: cimg/node:18.16.1
     steps:
       - checkout
+      - run: node --version
       - node/install-packages
       - run:
           command: npm run test
           name: 'Execute test with mocha'
       - persist_to_workspace:
           root: ~/project
-          paths: 
+          paths:
             - .
 
 # Invoke jobs via workflows.circle
@@ -30,5 +30,7 @@ workflows:
     jobs:
       - run_tests
       - node/run:
-          version: '18.15.0'
+          requires:
+            - run_tests
+          version: '18.16.1'
           npm-run: coverage
