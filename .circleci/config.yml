@@ -10,9 +10,15 @@ jobs:
   run_tests:
     docker:
       - image: cimg/node:18.16.1
+        environment:
+          CONNECTION_STRING: postgresql://postgres@localhost/circle_test
+      - image: cimg/postgres:14.0
+        environment: 
+          POSTGRES_USER: postgres
     steps:
       - checkout
       - run: node --version
+      - run: whoami
       - node/install-packages
       - run:
           command: npm run test
