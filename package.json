@@ -8,7 +8,8 @@
     "lint": "npx eslint --fix src/**",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "pretty": "prettier --write '**/*.{js,json}' '!node_modules/**'",
-    "start": "node ./src/bin/www --verbose"
+    "start": "node ./src/bin/www --verbose",
+    "runQuery": "node ./src/utils/runQuery.js"
   },
   "dependencies": {
     "@babel/core": "^7.22.5",
@@ -28,6 +29,7 @@
     "mocha": "^10.2.0",
     "morgan": "~1.9.1",
     "nyc": "^15.1.0",
+    "pg": "^8.11.1",
     "sinon-chai": "^3.7.0",
     "supertest": "^6.3.3"
   },
